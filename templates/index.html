@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time ASL Recognition</title>
+</head>
+<body>
+    <h1>Real-time ASL Recognition</h1>
+    <button onclick="startASL()">Start ASL Recognition</button>
+    <br>
+    <br>
+    <img src="{{ url_for('video_feed') }}">
+    <script>
+        function startASL() {
+            fetch('/')
+                .then(response => response.text())
+                .then(data => console.log(data))
+                .catch(error => console.log(error));
+        }
+    </script>
+</body>
+</html>
