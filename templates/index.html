@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real-time ASL Recognition</title>
+    <title>ASL Recognition</title>
 </head>
 <body>
-    <h1>Real-time ASL Recognition</h1>
-    <button onclick="startASL()">Start ASL Recognition</button>
-    <br>
-    <br>
-    <img src="{{ url_for('video_feed') }}">
+    <h1>ASL Recognition</h1>
+    <button id="startRecognition">Start ASL Recognition</button>
+    <div id="videoContainer" style="display:none;">
+        <img id="videoFeed" src="{{ url_for('video_feed') }}" alt="Webcam Feed">
+    </div>
+
     <script>
-        function startASL() {
-            fetch('/')
-                .then(response => response.text())
-                .then(data => console.log(data))
-                .catch(error => console.log(error));
-        }
+        document.getElementById("startRecognition").addEventListener("click", function() {
+            document.getElementById("videoContainer").style.display = "block";
+            document.getElementById("startRecognition").style.display = "none";
+        });
     </script>
 </body>
 </html>
